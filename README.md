@@ -1,4 +1,4 @@
-# VideoDA
+# We’re Not Using Videos Effectively: An Updated Video Domain Adaptation Baseline
 Domain adaptation for semantic segmentation using video!
 
 This repo is built off of mmsegmentation, with the [MIC repo](https://github.com/lhoyer/MIC/tree/master)
@@ -17,7 +17,7 @@ Modification of these [instructions](https://github.com/lhoyer/MIC/tree/master/s
 ## Key Contributions to mmsegmentation Repo
 We have made a number of key contributions to this open source mmsegmentation repo to support video domain adaptative segmentation experiments for future researchers to build off of. 
 
-Firstly, we consolidated the HRDA + MIC works into the  mmsegmentation repository. By adding the SOTA ImageDA work into this repository,researchers have the capability of easily switching between models, backbones, segmentation heads, and architectures for experimentation and ablation studies.
+By adding the SOTA ImageDA work into this repository, researchers have the capability of easily switching between models, backbones, segmentation heads, and architectures for experimentation and ablation studies.
 
 We added key datasets for the VideoDA benchmark (ViperSeq -> CityscapesSeq, SynthiaSeq -> CityscapesSeq) to mmsegmentation, and allowed for the capability of loading consecutive images along with the corresponding optical flow based on a frame distance specified. This enables researchers to easily start work on VideoDA related problems or benchmark current ImageDA appraoches on this setting.
 
@@ -58,11 +58,11 @@ The following files are where key changes were made:
 
 ## Reproducing Results
 
-All experiments conducted in the paper have corresponding scripts for reproducability inside the repository. Due to certain configurations, we have separated our code into 2 branches: (1) `discrim` (2) `accel`.
+All experiments conducted in the paper have corresponding scripts for reproducability inside the repository. Due to certain configurations, we have separated our code into 2 branches: (1) `main` (2) `accel`.
 
-The `discrim` branch will have all experiments that predict on single-images (no accel architecture) and will have scripts for reproducing results on viper and synthia for the baseline (HRDA + MIC) with different backbones, Pseudo-label refinement (with forward/backward flow compatibility), and video discriminator.
+The `main` branch will have all experiments that predict on single-images (no accel architecture) and will have scripts for reproducing results on viper and synthia for the baseline (HRDA + MIC) with different backbones, Pseudo-label refinement (with forward/backward flow compatibility), and video discriminator.
 
-The `accel` branch will have all experiments reported that predict on consecutive frames (ACCEL architecture) for viper. This brnach will also include the techniques needed for consistent mixup, which we have coupled with the ACCEL architecture for our experiments.
+The `accel` branch will have all experiments reported that predict on consecutive frames (ACCEL architecture) for viper. This branch will also include the techniques needed for consistent mixup, which we have coupled with the ACCEL architecture for our experiments.
 
 All experiment scrips are located in `tools/experiments/*`, with scripts being separated by the different shifts and VideoDA techniques.
 
